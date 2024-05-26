@@ -19,15 +19,6 @@ public class EtudiantController {
     @Autowired
     private EtudiantService etudiantService;
 
-    @GetMapping("/{idEtudiant}/contrats")
-    public ResponseEntity<List<Contrat>> getContratByEtudiant(@PathVariable Long idEtudiant) {
-        List<Contrat> contrats = etudiantService.getContratByEtudiant(idEtudiant);
-        if (contrats.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(contrats, HttpStatus.OK);
-    }
-
     @GetMapping("/{idEtudiant}/equipes")
     public ResponseEntity<List<Object>> getEquipesByEtudiantId(@PathVariable Long idEtudiant) {
         List<Object> equipes = etudiantService.getEquipesByEtudiantId(idEtudiant);

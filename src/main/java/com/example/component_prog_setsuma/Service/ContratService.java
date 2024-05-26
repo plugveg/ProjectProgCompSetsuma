@@ -15,9 +15,12 @@ public class ContratService {
     @Autowired
     private ContratRepo contratRepo;
 
-    @Transactional
     public void assignContratToEtudiant(Long contratId, Long etudiantId) {
         contratRepo.assignContratToEtudiant(contratId, etudiantId);
+    }
+
+    public List<Object> getContratsByEtudiantId(Long idEtudiant) {
+        return contratRepo.findContratsByEtudiantId(idEtudiant);
     }
 
     public Contrat addContrat(Contrat contrat) {

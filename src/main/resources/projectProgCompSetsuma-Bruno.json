@@ -43,7 +43,7 @@
         "headers": [],
         "body": {
           "mode": "json",
-          "json": "{\n  \"nomDepart\": \"Ligue 1\"\n}",
+          "json": "{\n  \"nomDepart\": \"FGES\"\n}",
           "formUrlEncoded": [],
           "multipartForm": []
         },
@@ -105,7 +105,7 @@
         "headers": [],
         "body": {
           "mode": "json",
-          "json": "{\n  \"nomEquipe\": \"LOSC\",\n  \"niveau\": \"EXPERT\"\n}",
+          "json": "{\n  \"nomEquipe\": \"Equipe 7\",\n  \"niveau\": \"EXPERT\"\n}",
           "formUrlEncoded": [],
           "multipartForm": []
         },
@@ -136,7 +136,7 @@
         "headers": [],
         "body": {
           "mode": "json",
-          "json": "{\n  \"prenomE\": \"Thomas\",\n  \"nomE\": \"Siest\",\n  \"option\": \"GAMIX\"\n}",
+          "json": "{\n  \"prenomE\": \"Thomas\",\n  \"nomE\": \"Siest\",\n  \"option\": \"SE\"\n}",
           "formUrlEncoded": [],
           "multipartForm": []
         },
@@ -167,7 +167,7 @@
         "headers": [],
         "body": {
           "mode": "json",
-          "json": "{\n  \"nomUniv\": \"La Catho\"\n}",
+          "json": "{\n  \"nomUniv\": \"EDN\"\n}",
           "formUrlEncoded": [],
           "multipartForm": []
         },
@@ -220,10 +220,10 @@
     },
     {
       "type": "http",
-      "name": "allDepartements",
-      "seq": 26,
+      "name": "allDetailEquipes",
+      "seq": 31,
       "request": {
-        "url": "http://localhost:8080/setsuma/departements/departements",
+        "url": "http://localhost:8080/setsuma/detail-equipes/detail-equipes",
         "method": "GET",
         "headers": [],
         "body": {
@@ -250,10 +250,10 @@
     },
     {
       "type": "http",
-      "name": "allDetailEquipes",
-      "seq": 31,
+      "name": "allDepartements",
+      "seq": 26,
       "request": {
-        "url": "http://localhost:8080/setsuma/detail-equipes/detail-equipes",
+        "url": "http://localhost:8080/setsuma/departements/departements",
         "method": "GET",
         "headers": [],
         "body": {
@@ -370,10 +370,10 @@
     },
     {
       "type": "http",
-      "name": "assignDepartementToUniversite",
-      "seq": 35,
+      "name": "assignContratToEtudiant",
+      "seq": 36,
       "request": {
-        "url": "http://localhost:8080/setsuma/universites/2/departements/2",
+        "url": "http://localhost:8080/setsuma/contrats/assign-contrat?idContrat=3&idEtudiant=4",
         "method": "POST",
         "headers": [],
         "body": {
@@ -395,7 +395,59 @@
         "vars": {},
         "assertions": [],
         "tests": "",
-        "query": []
+        "query": [
+          {
+            "name": "idContrat",
+            "value": "3",
+            "enabled": true
+          },
+          {
+            "name": "idEtudiant",
+            "value": "4",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "http",
+      "name": "assignDepartementToUniversite",
+      "seq": 35,
+      "request": {
+        "url": "http://localhost:8080/setsuma/universites/assign-departement?idUniv=3&idDepart=3",
+        "method": "POST",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": [
+          {
+            "name": "idUniv",
+            "value": "3",
+            "enabled": true
+          },
+          {
+            "name": "idDepart",
+            "value": "3",
+            "enabled": true
+          }
+        ]
       }
     },
     {
@@ -511,7 +563,7 @@
       "name": "deleteEquipe",
       "seq": 4,
       "request": {
-        "url": "http://localhost:8080/setsuma/equipes/delete-equipe?idEquipe=2",
+        "url": "http://localhost:8080/setsuma/equipes/delete-equipe?idEquipe=5",
         "method": "DELETE",
         "headers": [],
         "body": {
@@ -536,7 +588,7 @@
         "query": [
           {
             "name": "idEquipe",
-            "value": "2",
+            "value": "5",
             "enabled": true
           }
         ]
@@ -580,42 +632,6 @@
     },
     {
       "type": "http",
-      "name": "deleteUniversite",
-      "seq": 9,
-      "request": {
-        "url": "http://localhost:8080/setsuma/universites/delete-universite?idUniversite=1",
-        "method": "DELETE",
-        "headers": [],
-        "body": {
-          "mode": "none",
-          "formUrlEncoded": [],
-          "multipartForm": []
-        },
-        "auth": {
-          "mode": "none",
-          "basic": {
-            "username": "",
-            "password": ""
-          },
-          "bearer": {
-            "token": ""
-          }
-        },
-        "script": {},
-        "vars": {},
-        "assertions": [],
-        "tests": "",
-        "query": [
-          {
-            "name": "idUniversite",
-            "value": "1",
-            "enabled": true
-          }
-        ]
-      }
-    },
-    {
-      "type": "http",
       "name": "findContrat",
       "seq": 20,
       "request": {
@@ -644,6 +660,42 @@
         "query": [
           {
             "name": "idContrat",
+            "value": "1",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "http",
+      "name": "deleteUniversite",
+      "seq": 9,
+      "request": {
+        "url": "http://localhost:8080/setsuma/universites/delete-universite?idUniversite=1",
+        "method": "DELETE",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": [
+          {
+            "name": "idUniversite",
             "value": "1",
             "enabled": true
           }
@@ -832,10 +884,10 @@
     },
     {
       "type": "http",
-      "name": "getContratByEtudiant",
-      "seq": 32,
+      "name": "getContratsByEtudiantId",
+      "seq": 36,
       "request": {
-        "url": "http://localhost:8080/setsuma/etudiants/AAAA/contrats",
+        "url": "http://localhost:8080/setsuma/contrats/etudiants/4/contrats",
         "method": "GET",
         "headers": [],
         "body": {
@@ -865,7 +917,7 @@
       "name": "getDepartementsByUniversiteId",
       "seq": 34,
       "request": {
-        "url": "http://localhost:8080/setsuma/universites/2/departements",
+        "url": "http://localhost:8080/setsuma/universites/3/departements",
         "method": "GET",
         "headers": [],
         "body": {
@@ -895,11 +947,42 @@
       "name": "getEquipesByEtudiantId",
       "seq": 33,
       "request": {
-        "url": "http://localhost:8080/setsuma/etudiants/2/equipes",
+        "url": "http://localhost:8080/setsuma/etudiants/3/equipes",
         "method": "GET",
         "headers": [],
         "body": {
           "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "modifyContrat",
+      "seq": 18,
+      "request": {
+        "url": "http://localhost:8080/setsuma/contrats/modify-contrat",
+        "method": "PATCH",
+        "headers": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"idContrat\": 3,\n  \"dateDebutContrat\": \"2024-05-01\",\n  \"dateFinContrat\": \"2024-08-01\",\n  \"specialite\": \"SECURITE\",\n  \"archive\": false,\n  \"montantContrat\": 1500\n}",
           "formUrlEncoded": [],
           "multipartForm": []
         },
@@ -992,38 +1075,7 @@
         "headers": [],
         "body": {
           "mode": "json",
-          "json": "{\n  \"idEquipe\": 2,\n  \"nomEquipe\": \"Azul Claro Numazu\",\n  \"niveau\": \"JUNIOR\"\n}",
-          "formUrlEncoded": [],
-          "multipartForm": []
-        },
-        "auth": {
-          "mode": "none",
-          "basic": {
-            "username": "",
-            "password": ""
-          },
-          "bearer": {
-            "token": ""
-          }
-        },
-        "script": {},
-        "vars": {},
-        "assertions": [],
-        "tests": "",
-        "query": []
-      }
-    },
-    {
-      "type": "http",
-      "name": "modifyContrat",
-      "seq": 18,
-      "request": {
-        "url": "http://localhost:8080/setsuma/contrats/modify-contrat",
-        "method": "PATCH",
-        "headers": [],
-        "body": {
-          "mode": "json",
-          "json": "{\n  \"idContrat\": 3,\n  \"dateDebutContrat\": \"2024-05-01\",\n  \"dateFinContrat\": \"2024-08-01\",\n  \"specialite\": \"SECURITE\",\n  \"archive\": false,\n  \"montantContrat\": 1500\n}",
+          "json": "{\n  \"idEquipe\": 4,\n  \"nomEquipe\": \"Programmation par Composant\",\n  \"niveau\": \"JUNIOR\"\n}",
           "formUrlEncoded": [],
           "multipartForm": []
         },
@@ -1086,36 +1138,6 @@
         "body": {
           "mode": "json",
           "json": "{\n  \"idUniv\": 1,\n  \"nomUniv\": \"La Catho - EDN\"\n}",
-          "formUrlEncoded": [],
-          "multipartForm": []
-        },
-        "auth": {
-          "mode": "none",
-          "basic": {
-            "username": "",
-            "password": ""
-          },
-          "bearer": {
-            "token": ""
-          }
-        },
-        "script": {},
-        "vars": {},
-        "assertions": [],
-        "tests": "",
-        "query": []
-      }
-    },
-    {
-      "type": "http",
-      "name": "assignContratToEtudiant",
-      "seq": 36,
-      "request": {
-        "url": "http://localhost:8080/setsuma/contrats/3/etudiants/2",
-        "method": "POST",
-        "headers": [],
-        "body": {
-          "mode": "none",
           "formUrlEncoded": [],
           "multipartForm": []
         },

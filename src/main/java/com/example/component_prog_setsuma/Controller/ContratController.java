@@ -17,14 +17,23 @@ public class ContratController {
     @Autowired
     private ContratService contratService;
 
-    @PostMapping("/{contratId}/etudiants/{etudiantId}")
-    public ResponseEntity<Void> assignContratToEtudiant(@PathVariable Long contratId, @PathVariable Long etudiantId) {
+    @PostMapping("/assign-contrat")
+    public ResponseEntity<Void> assignContratToEtudiant(@RequestParam Long idContrat, @RequestParam Long idEtudiant) {
         try {
-            contratService.assignContratToEtudiant(contratId, etudiantId);
+            contratService.assignContratToEtudiant(idContrat, idEtudiant);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/etudiants/{idEtudiant}/contrats")
+    public ResponseEntity<List<Object>> getContratsByEtudiantId(@PathVariable Long idEtudiant) {
+        List<Object> contrats = contratService.getContratsByEtudiantId(idEtudiant);
+        if (contrats.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(contrats, HttpStatus.OK);
     }
 
     @PostMapping("/add-contrat")

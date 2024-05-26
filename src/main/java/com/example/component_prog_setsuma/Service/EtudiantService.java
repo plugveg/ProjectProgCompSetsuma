@@ -18,10 +18,6 @@ public class EtudiantService {
     @Autowired
     private EtudiantRepo etudiantRepo;
 
-    public List<Contrat> getContratByEtudiant(Long idEtudiant) {
-        return etudiantRepo.findContratsByEtudiantId(idEtudiant);
-    }
-
     public List<Object> getEquipesByEtudiantId(Long idEtudiant) {
         return etudiantRepo.findEquipesByEtudiantId(idEtudiant);
     }

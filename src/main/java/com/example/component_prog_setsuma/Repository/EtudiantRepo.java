@@ -17,9 +17,6 @@ public interface EtudiantRepo extends JpaRepository<Etudiant, Long> {
     @Query(value = "SELECT * FROM Etudiant WHERE prenom_etudiant = ?1", nativeQuery = true)
     Etudiant getEtudiantByPrenom(String prenomEtudiant);
 
-    @Query("SELECT e.contrats FROM Etudiant e WHERE e.idEtudiant = :idEtudiant")
-    List<Contrat> findContratsByEtudiantId(@Param("idEtudiant") Long idEtudiant);
-
     @Query(value = "SELECT e.* FROM equipe e " +
             "JOIN etudiant_equipe ee ON e.id_equipe = ee.equipe_id_equipe " +
             "WHERE ee.etudiants_id_etudiant = :idEtudiant", nativeQuery = true)
