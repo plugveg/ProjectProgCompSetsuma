@@ -21,13 +21,13 @@ Le diagramme de classe est disponible dans le [fichier](src/main/resources/MCD-M
 ## Architecture
 L'architecture du projet est la suivante :
 - `src/main/java` : Contient les fichiers sources du projet
-  - `com.setsuma.componentprog` : Contient les fichiers sources du projet
-    - `controller` : Contient les fichiers sources des contrôleurs
-    - `entity` : Contient les fichiers sources des entités
-    - `repository` : Contient les fichiers sources des repositories
-    - `service` : Contient les fichiers sources des services
+  - `com.setsuma.component_prog_setsuma` : Contient les fichiers sources du projet
+    - `controller` : Contient les [fichiers sources des contrôleurs](src/main/java/com/example/component_prog_setsuma/Controller)
+    - `entity` : Contient les [fichiers sources des entités](src/main/java/com/example/component_prog_setsuma/Entity)
+    - `repository` : Contient [les fichiers sources des repositories](src/main/java/com/example/component_prog_setsuma/Repository)
+    - `service` : Contient [les fichiers sources des services](src/main/java/com/example/component_prog_setsuma/Service)
     - `ComponentProgSetsumaApplication.java` : Classe principale du projet
-- `src/main/resources` : Contient les ressources du projet
+- `src/main/resources` : Contient les [ressources du projet](src/main/resources)
 
 ## Consignes
 ##  A rendre pour le DIMANCHE 26 mai 15H00
