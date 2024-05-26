@@ -14,7 +14,7 @@ Ce projet est un projet de programmation par composants.
 Il a pour but de mettre en place une architecture de programmation par composants en utilisant le langage de programmation Java.
 
 ## Diagramme de classe
-Le diagramme de classe est disponible dans le [dossier](src/main/resources/MCD-MLD.png).
+Le diagramme de classe est disponible dans le [fichier](src/main/resources/MCD-MLD.png).
 
 ![MCD-MLD](src/main/resources/MCD-MLD.png)
 
@@ -33,7 +33,7 @@ L'architecture du projet est la suivante :
 ##  A rendre pour le DIMANCHE 26 mai 15H00
 
 Pour plus d'informations, veuillez consulter le fichier `CompteRendu.pdf`.
-Disponible dans le dossier `src/main/resources/CompteRendu.pdf`.
+Disponible dans le [fichier](src/main/resources/CompteRendu.pdf).
 
 ## Remarques
 1. J'ai décidé de faire une nomenclature selon d'abord le nom de la classe, 
