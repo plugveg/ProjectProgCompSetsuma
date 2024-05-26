@@ -27,13 +27,13 @@ public class UniversiteController {
         return new ResponseEntity<>(departements, HttpStatus.OK);
     }
 
-    @PostMapping("/{idUniv}/departements/{idDepart}")
-    public ResponseEntity<Void> assignDepartementToUniversite(@PathVariable Long idUniv, @PathVariable Long idDepart) {
+    @PostMapping("/assign-departement")
+    public ResponseEntity<Void> assignDepartementToUniversite(@RequestParam Long idUniv, @RequestParam Long idDepart) {
         try {
             universiteService.assignDepartementToUniversite(idUniv, idDepart);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

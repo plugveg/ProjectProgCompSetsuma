@@ -2,7 +2,9 @@ package com.example.component_prog_setsuma.Repository;
 
 import com.example.component_prog_setsuma.Entity.Departement;
 import com.example.component_prog_setsuma.Entity.Universite;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -19,6 +21,8 @@ public interface UniversiteRepo extends JpaRepository<Universite, Long> {
             "WHERE u.id_univ = :idUniv", nativeQuery = true)
     List<Object> findDepartementsByUniversiteId(@Param("idUniv") Integer idUniv);
 
-    @Query(value = "INSERT INTO universite_departements (universite_id_univ, departements_id_depart) VALUES (2, 2)", nativeQuery = true)
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO universite_departements (universite_id_univ, departements_id_depart) VALUES (:idUniv, :idDepart)", nativeQuery = true)
     void assignDepartementToUniversite(@Param("idUniv") Long idUniv, @Param("idDepart") Long idDepart);
 }

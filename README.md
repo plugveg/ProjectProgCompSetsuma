@@ -5,9 +5,10 @@
 ## Table des matières
 1. [Introduction](#introduction)
 2. [Diagramme de classe](#diagramme-de-classe)
-3. [Architecture](#architecture)
-4. [Consignes](#consignes)
-5. [Remarques](#remarques)
+3. [Connexion à la base de données](#connexion-à-la-base-de-données)
+4. [Architecture](#architecture)
+5. [Consignes](#consignes)
+6. [Remarques](#remarques)
 
 ## Introduction
 Ce projet est un projet de programmation par composants. 
@@ -17,6 +18,11 @@ Il a pour but de mettre en place une architecture de programmation par composant
 Le diagramme de classe est disponible dans le [fichier](src/main/resources/MCD-MLD.png).
 
 ![MCD-MLD](src/main/resources/MCD-MLD.png)
+
+## Connexion à la base de données
+Pour se connecter à la base de données, il faut modifier le fichier `application.properties`
+et mettre les informations de connexion à la base de données.
+![bdd_in_intellij](src/main/resources/bdd_in_intellij.png)
 
 ## Architecture
 L'architecture du projet est la suivante :

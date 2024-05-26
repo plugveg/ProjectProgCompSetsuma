@@ -21,7 +21,6 @@ public class UniversiteService {
         return universiteRepo.findDepartementsByUniversiteId(idUniv);
     }
 
-    @Transactional
     public void assignDepartementToUniversite(Long idUniv, Long idDepart) {
         universiteRepo.assignDepartementToUniversite(idUniv, idDepart);
     }
