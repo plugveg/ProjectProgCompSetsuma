@@ -23,6 +23,18 @@ public class ContratService {
         return contratRepo.findContratsByEtudiantId(idEtudiant);
     }
 
+    public void checkContratsValidity() {
+        List<Contrat> contrats = contratRepo.findAll();
+        for (Contrat contrat : contrats) {
+            System.out.println("contrat n° " + contrat.getIdContrat() + " Est-il archivé : " + contrat.getDateFinContrat().before(new java.util.Date()) + "\n");
+            if (contrat.getDateFinContrat().before(new java.util.Date())) {
+                // Faire quelque chose si le contrat est expiré, par exemple le marquer comme archivé
+                contrat.setArchive(true);
+                contratRepo.save(contrat);
+            }
+        }
+    }
+
     public Contrat addContrat(Contrat contrat) {
         return contratRepo.save(contrat);
     }
