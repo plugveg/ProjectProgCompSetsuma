@@ -1,0 +1,260 @@
+{
+  "name": "spring-security",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "1- GET with JWT missing",
+      "seq": 1,
+      "request": {
+        "url": "http://localhost:8080/rest/hello",
+        "method": "GET",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "2- POST with JWT missing Copy",
+      "seq": 2,
+      "request": {
+        "url": "http://localhost:8080/token",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\r\n  \"userName\":\"Ramit\",\r\n  \"id\": 123,\r\n  \"role\": \"admin\"\r\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "3- GET with JWT token received in 2",
+      "seq": 3,
+      "request": {
+        "url": "http://localhost:8080/rest/hello",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSYW1pdCIsInVzZXJJZCI6IjEyMyIsInJvbGUiOiJhZG1pbiJ9.S-IjuY1mjBYHWZQIRXNQla7m1StIN5u6zzqZ7TtGih0Rbqe-xwXknjP8xaurastU3Et6LG-WoGoanVUF7Vu8-Q",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "4- GET with missing Basic Auth",
+      "seq": 4,
+      "request": {
+        "url": "http://localhost:8080/basic/hello",
+        "method": "GET",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "6- Basic auth with a user named user",
+      "seq": 6,
+      "request": {
+        "url": "http://localhost:8080/user/hello",
+        "method": "GET",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "basic",
+          "basic": {
+            "username": "user",
+            "password": "password"
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "5- GET with Basic Auth credentials",
+      "seq": 5,
+      "request": {
+        "url": "http://localhost:8080/basic/hello",
+        "method": "GET",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "basic",
+          "basic": {
+            "username": "user",
+            "password": "password"
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "7- GET details of logged in user",
+      "seq": 7,
+      "request": {
+        "url": "http://localhost:8080/user/getLoggedInUser",
+        "method": "GET",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "8- GET with basic auth of ADMIN user",
+      "seq": 8,
+      "request": {
+        "url": "http://localhost:8080/admin/hello",
+        "method": "GET",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "basic",
+          "basic": {
+            "username": "admin",
+            "password": "adminpass"
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    }
+  ],
+  "environments": []
+}

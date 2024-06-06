@@ -12,7 +12,7 @@
         "headers": [],
         "body": {
           "mode": "json",
-          "json": "{\n  \"dateDebutContrat\": \"2024-05-01\",\n  \"dateFinContrat\": \"2024-08-01\",\n  \"specialite\": \"SECURITE\",\n  \"archive\": false,\n  \"montantContrat\": 1500\n}",
+          "json": "{\n  \"dateDebutContrat\": \"2024-05-20\",\n  \"dateFinContrat\": \"2024-05-28\",\n  \"specialite\": \"IA\",\n  \"archive\": false,\n  \"montantContrat\": 25000\n}",
           "formUrlEncoded": [],
           "multipartForm": []
         },
@@ -220,10 +220,10 @@
     },
     {
       "type": "http",
-      "name": "allDetailEquipes",
-      "seq": 31,
+      "name": "allDepartements",
+      "seq": 26,
       "request": {
-        "url": "http://localhost:8080/setsuma/detail-equipes/detail-equipes",
+        "url": "http://localhost:8080/setsuma/departements/departements",
         "method": "GET",
         "headers": [],
         "body": {
@@ -250,10 +250,10 @@
     },
     {
       "type": "http",
-      "name": "allDepartements",
-      "seq": 26,
+      "name": "allDetailEquipes",
+      "seq": 31,
       "request": {
-        "url": "http://localhost:8080/setsuma/departements/departements",
+        "url": "http://localhost:8080/setsuma/detail-equipes/detail-equipes",
         "method": "GET",
         "headers": [],
         "body": {
@@ -632,42 +632,6 @@
     },
     {
       "type": "http",
-      "name": "findContrat",
-      "seq": 20,
-      "request": {
-        "url": "http://localhost:8080/setsuma/contrats/contrat?idContrat=1",
-        "method": "GET",
-        "headers": [],
-        "body": {
-          "mode": "none",
-          "formUrlEncoded": [],
-          "multipartForm": []
-        },
-        "auth": {
-          "mode": "none",
-          "basic": {
-            "username": "",
-            "password": ""
-          },
-          "bearer": {
-            "token": ""
-          }
-        },
-        "script": {},
-        "vars": {},
-        "assertions": [],
-        "tests": "",
-        "query": [
-          {
-            "name": "idContrat",
-            "value": "1",
-            "enabled": true
-          }
-        ]
-      }
-    },
-    {
-      "type": "http",
       "name": "deleteUniversite",
       "seq": 9,
       "request": {
@@ -697,6 +661,42 @@
           {
             "name": "idUniversite",
             "value": "1",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "http",
+      "name": "findContrat",
+      "seq": 20,
+      "request": {
+        "url": "http://localhost:8080/setsuma/contrats/contrat?idContrat=5",
+        "method": "GET",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": [
+          {
+            "name": "idContrat",
+            "value": "5",
             "enabled": true
           }
         ]
