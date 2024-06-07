@@ -6,6 +6,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,16 +25,33 @@ public class ContratService {
         return contratRepo.findContratsByEtudiantId(idEtudiant);
     }
 
-    public void checkContratsValidity() {
+    @Transactional
+    public void retrieveAndUpdateStatusContrat() {
         List<Contrat> contrats = contratRepo.findAll();
         for (Contrat contrat : contrats) {
-            System.out.println("contrat n° " + contrat.getIdContrat() + " Est-il archivé : " + contrat.getDateFinContrat().before(new java.util.Date()) + "\n");
-            if (contrat.getDateFinContrat().before(new java.util.Date())) {
-                // Faire quelque chose si le contrat est expiré, par exemple le marquer comme archivé
-                contrat.setArchive(true);
-                contratRepo.save(contrat);
+            Date dateFinContrat = contrat.getDateFinContrat();
+            Calendar c = Calendar.getInstance();
+            c.setTime(new Date());
+            c.add(Calendar.DATE, 15);
+            Date dateIn15Days = c.getTime();
+
+            if (dateFinContrat.before(dateIn15Days)) {
+                if (contrat.getEtudiant() != null){
+                    System.out.println("Le contrat n° " + contrat.getIdContrat() + " appartient à l'étudiant: " + contrat.getEtudiant().getNomE() + " " + contrat.getEtudiant().getPrenomE());
+                } else {
+                    System.out.println("Le contrat n° " + contrat.getIdContrat() + " n'appartient à aucun étudiant !");
+                }
+                System.out.println("Le contrat à une date de fin : " + dateFinContrat);
+                System.out.println("Le contrat à une spécialité : " + contrat.getSpecialite() + "\n");
+
+                if (dateFinContrat.before(new Date())) {
+                    contrat.setArchive(true);
+                    contratRepo.save(contrat);
+                    System.out.println("Contrat n° " + contrat.getIdContrat() + " est maintenant archivé ! \n\n");
+                }
             }
         }
+        // Si on fait des returns dans une méthode transactionnelle, il faut que ce soit des void car sinon cette dernière ne parcourra tous les contrats
     }
 
     public Contrat addContrat(Contrat contrat) {
