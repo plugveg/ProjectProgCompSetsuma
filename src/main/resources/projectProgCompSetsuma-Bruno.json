@@ -12,7 +12,7 @@
         "headers": [],
         "body": {
           "mode": "json",
-          "json": "{\n  \"dateDebutContrat\": \"2024-05-20\",\n  \"dateFinContrat\": \"2024-05-28\",\n  \"specialite\": \"IA\",\n  \"archive\": false,\n  \"montantContrat\": 25000\n}",
+          "json": "{\n  \"dateDebutContrat\": \"2024-05-20\",\n  \"dateFinContrat\": \"2024-06-10\",\n  \"specialite\": \"RESEAUX\",\n  \"archive\": false,\n  \"montantContrat\": 66666\n}",
           "formUrlEncoded": [],
           "multipartForm": []
         },
@@ -97,15 +97,21 @@
     },
     {
       "type": "http",
-      "name": "addEquipe",
-      "seq": 2,
+      "name": "addEtudiant",
+      "seq": 12,
       "request": {
-        "url": "http://localhost:8080/setsuma/equipes/add-equipe",
+        "url": "http://localhost:8080/setsuma/etudiants/add-etudiant",
         "method": "POST",
-        "headers": [],
+        "headers": [
+          {
+            "name": "Cookie",
+            "value": "setsuma=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYWZ1eXUiLCJpYXQiOjE3MTc5MzAzNzEsImV4cCI6MTcxODAxNjc3MX0.aaT_VYm3ohjFeqJox3OFm-p-g_dQvjCZKj4IdtLGuEo; Path=/api; Max-Age=86400; Expires=Mon, 10 Jun 2024 10:52:51 GMT; HttpOnly",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "json",
-          "json": "{\n  \"nomEquipe\": \"Equipe 7\",\n  \"niveau\": \"EXPERT\"\n}",
+          "json": "{\n  \"prenomE\": \"Test8\",\n  \"nomE\": \"Test8\",\n  \"option\": \"NIDS\"\n}",
           "formUrlEncoded": [],
           "multipartForm": []
         },
@@ -128,15 +134,15 @@
     },
     {
       "type": "http",
-      "name": "addEtudiant",
-      "seq": 12,
+      "name": "addEquipe",
+      "seq": 2,
       "request": {
-        "url": "http://localhost:8080/setsuma/etudiants/add-etudiant",
+        "url": "http://localhost:8080/setsuma/equipes/add-equipe",
         "method": "POST",
         "headers": [],
         "body": {
           "mode": "json",
-          "json": "{\n  \"prenomE\": \"Thomas\",\n  \"nomE\": \"Siest\",\n  \"option\": \"SE\"\n}",
+          "json": "{\n  \"nomEquipe\": \"Equipe 7\",\n  \"niveau\": \"EXPERT\"\n}",
           "formUrlEncoded": [],
           "multipartForm": []
         },
@@ -373,7 +379,7 @@
       "name": "assignContratToEtudiant",
       "seq": 36,
       "request": {
-        "url": "http://localhost:8080/setsuma/contrats/assign-contrat?idContrat=3&idEtudiant=4",
+        "url": "http://localhost:8080/setsuma/contrats/assign-contrat?idContrat=1&idEtudiant=1",
         "method": "POST",
         "headers": [],
         "body": {
@@ -398,12 +404,12 @@
         "query": [
           {
             "name": "idContrat",
-            "value": "3",
+            "value": "1",
             "enabled": true
           },
           {
             "name": "idEtudiant",
-            "value": "4",
+            "value": "1",
             "enabled": true
           }
         ]
@@ -1138,6 +1144,98 @@
         "body": {
           "mode": "json",
           "json": "{\n  \"idUniv\": 1,\n  \"nomUniv\": \"La Catho - EDN\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "Signin",
+      "seq": 36,
+      "request": {
+        "url": "http://localhost:8080/api/auth/signin",
+        "method": "POST",
+        "headers": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"username\": \"Mafuyu\",\n  \"password\": \"JadoreLeJava\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "bearer",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "Signout",
+      "seq": 37,
+      "request": {
+        "url": "http://localhost:8080/api/auth/signout",
+        "method": "POST",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "Signup",
+      "seq": 38,
+      "request": {
+        "url": "http://localhost:8080/api/auth/signup",
+        "method": "POST",
+        "headers": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"username\": \"Setsuma\",\n  \"email\": \"thomas.siest@gmail.com\",\n  \"role\": [\"moderator\"],\n  \"password\": \"JadoreLeJava\"\n}",
           "formUrlEncoded": [],
           "multipartForm": []
         },

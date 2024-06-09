@@ -13,7 +13,7 @@
         "url": "http://localhost:8080/setsuma/contrats/add-contrat",
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"dateDebutContrat\": \"2024-05-01\",\n  \"dateFinContrat\": \"2024-08-01\",\n  \"specialite\": \"SECURITE\",\n  \"archive\": false,\n  \"montantContrat\": 1500\n}",
+          "raw": "{\n  \"dateDebutContrat\": \"2024-05-20\",\n  \"dateFinContrat\": \"2024-06-10\",\n  \"specialite\": \"RESEAUX\",\n  \"archive\": false,\n  \"montantContrat\": 66666\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -59,15 +59,22 @@
       }
     },
     {
-      "name": "addEquipe",
+      "name": "addEtudiant",
       "event": [],
       "request": {
         "method": "POST",
-        "header": [],
-        "url": "http://localhost:8080/setsuma/equipes/add-equipe",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "setsuma=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYWZ1eXUiLCJpYXQiOjE3MTc5MzAzNzEsImV4cCI6MTcxODAxNjc3MX0.aaT_VYm3ohjFeqJox3OFm-p-g_dQvjCZKj4IdtLGuEo; Path=/api; Max-Age=86400; Expires=Mon, 10 Jun 2024 10:52:51 GMT; HttpOnly",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "url": "http://localhost:8080/setsuma/etudiants/add-etudiant",
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"nomEquipe\": \"Equipe 7\",\n  \"niveau\": \"EXPERT\"\n}",
+          "raw": "{\n  \"prenomE\": \"Test8\",\n  \"nomE\": \"Test8\",\n  \"option\": \"NIDS\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -77,15 +84,15 @@
       }
     },
     {
-      "name": "addEtudiant",
+      "name": "addEquipe",
       "event": [],
       "request": {
         "method": "POST",
         "header": [],
-        "url": "http://localhost:8080/setsuma/etudiants/add-etudiant",
+        "url": "http://localhost:8080/setsuma/equipes/add-equipe",
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"prenomE\": \"Thomas\",\n  \"nomE\": \"Siest\",\n  \"option\": \"SE\"\n}",
+          "raw": "{\n  \"nomEquipe\": \"Equipe 7\",\n  \"niveau\": \"EXPERT\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -122,21 +129,21 @@
       }
     },
     {
-      "name": "allDetailEquipes",
-      "event": [],
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": "http://localhost:8080/setsuma/detail-equipes/detail-equipes"
-      }
-    },
-    {
       "name": "allDepartements",
       "event": [],
       "request": {
         "method": "GET",
         "header": [],
         "url": "http://localhost:8080/setsuma/departements/departements"
+      }
+    },
+    {
+      "name": "allDetailEquipes",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/setsuma/detail-equipes/detail-equipes"
       }
     },
     {
@@ -172,7 +179,7 @@
       "request": {
         "method": "POST",
         "header": [],
-        "url": "http://localhost:8080/setsuma/contrats/assign-contrat?idContrat=3&idEtudiant=4"
+        "url": "http://localhost:8080/setsuma/contrats/assign-contrat?idContrat=1&idEtudiant=1"
       }
     },
     {
@@ -230,21 +237,21 @@
       }
     },
     {
-      "name": "findContrat",
-      "event": [],
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": "http://localhost:8080/setsuma/contrats/contrat?idContrat=1"
-      }
-    },
-    {
       "name": "deleteUniversite",
       "event": [],
       "request": {
         "method": "DELETE",
         "header": [],
         "url": "http://localhost:8080/setsuma/universites/delete-universite?idUniversite=1"
+      }
+    },
+    {
+      "name": "findContrat",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/setsuma/contrats/contrat?idContrat=5"
       }
     },
     {
@@ -428,8 +435,49 @@
       }
     },
     {
-      "name": "bruno",
-      "event": []
+      "name": "Signin",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/api/auth/signin",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"Mafuyu\",\n  \"password\": \"JadoreLeJava\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Signout",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/api/auth/signout"
+      }
+    },
+    {
+      "name": "Signup",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/api/auth/signup",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"Setsuma\",\n  \"email\": \"thomas.siest@gmail.com\",\n  \"role\": [\"moderator\"],\n  \"password\": \"JadoreLeJava\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
     }
   ],
   "variable": []

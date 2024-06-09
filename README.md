@@ -136,13 +136,49 @@ Disponible dans le [fichier](src/main/resources/CompteRendu2.pdf).
 | /api/auth/signout | POST   | Déconnecter un utilisateur        | Content-Type: application/json | N/A           | N/A    |
 
 ## Service Schedulé
-TODO
+Mise en place d'un service schedulé pour archiver les contrats expirés.
+La mise à jour des contrats expirés se fait tous les jours à 13h.
+Dans ce [fichier](src/main/java/com/example/component_prog_setsuma/Component/ContratScheduler.java)
+Voici une preuve ci-dessous :
 
+![expired-contrat.png](src/main/resources/expired-contrat.png)
+
+---
 ## Spring Security
-TODO
+Mise en place de 3 endpoints pour l'authentification :
+1. `/api/auth/signin` : Authentifier un utilisateur
+2. `/api/auth/signup` : Enregistrer un nouvel utilisateur
+3. `/api/auth/signout` : Déconnecter un utilisateur
+
+Voici les différents screenshots pour l'authentification :
+1. Authentifier un utilisateur
+   * Utilisateur non authentifié
+     ![not-authenticated.png](src/main/resources/not-authenticated.png)
+   * Utilisateur authentifié
+![success-authenticated.png](src/main/resources/success-authenticated.png)
+   * Création du token
+![cookie.png](src/main/resources/cookie.png)
+
+2. Enregistrer un utilisateur
+   * Mail déjà utilisé
+![mail-in-use.png](src/main/resources/mail-in-use.png)
+   * Username déjà utilisé
+![username-in-use.png](src/main/resources/username-in-use.png)
+   * Utilisateur authentifié
+![success-register.png](src/main/resources/success-register.png)
+
+3. Déconnecter un utilisateur
+   * Utilisateur déconnecté
+     ![signout.png](src/main/resources/signout.png)
 
 ## Sécurisation des endpoints
-TODO
+La sécurisation des endpoints se fait par l'intermédiaire de Spring Security.
+Via ce [fichier](src/main/java/com/example/component_prog_setsuma/Security/WebSecurityConfig.java)
+Voici une preuve ci-dessous avec le endpoint `/setsuma/etudiants/add-etudiant` :
+   * Utilisateur non autorisé
+     ![not-authorized-endpoint.png](src/main/resources/not-authorized-endpoint.png)
+   * Utilisateur autorisé
+     ![authenticated-endpoint.png](src/main/resources/authenticated-endpoint.png)
 
 ## Remarques
 1. J'ai décidé de faire une nomenclature selon d'abord le nom de la classe, 
